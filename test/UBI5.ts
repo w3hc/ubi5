@@ -27,7 +27,7 @@ describe("UBI5", function () {
 
   describe("Interactions", function () {
     
-    it("Should add a benficiary", async function () {
+    it("Should add a beneficiary", async function () {
       const { ubi5, eur } = await loadFixture(deployContracts)
       const input = ethers.utils.parseEther('10000')
       await eur.transfer(ubi5.address, input)  
