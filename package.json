@@ -1,14 +1,16 @@
 {
   "name": "ubi5",
   "version": "1.0.0",
-  "description": "",
+  "description": "A UBI system",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "npx hardhat run scripts/deploy.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ubi"
+  ],
+  "author": "W3HC",
   "license": "ISC",
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
