@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -25,7 +25,7 @@ contract UBI5 is Ownable {
 
     Beneficiary[] public beneficiaries;
 
-    constructor(address _eur) {
+    constructor(address _eur, address initialOwner) Ownable(initialOwner) {
         eur = _eur;
     }
 
@@ -34,11 +34,7 @@ contract UBI5 is Ownable {
     /// @param newBeneficiary is a legit beneficiary: 1 person randomly selected out of 8 billion
     function addBeneficiary(address newBeneficiary) public {
         beneficiaries.push(
-            Beneficiary({
-                addr: newBeneficiary,
-                status: Status.ACTIVE,
-                end: block.number + 5
-            })
+            Beneficiary({addr: newBeneficiary, status: Status.ACTIVE, end: block.number + 5})
         );
 
         emit Added(newBeneficiary);
